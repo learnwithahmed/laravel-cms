@@ -1,9 +1,6 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 
-// Variables
-@import "variables";
-
 // Bulma
 @import "./node_modules/bulma/bulma.sass";
 
@@ -128,4 +125,14 @@ p {
 }
 p.subtitle {
     padding-top: 1rem;
+}
+
+.table-container {
+    overflow: visible;
+}
+.table.is-narrow {
+    & td,
+    & th {
+        padding: 1.25em 0.5em;
+    }
 }
