@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.app');
-});
+Auth::routes();
+
+Route::get('/', 'Auth\LoginController@showLoginForm');
+Route::get('/logout', 'Auth\LoginController@logout');
+
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
