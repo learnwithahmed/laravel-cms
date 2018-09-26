@@ -18,3 +18,5 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
+//Emplyees
+Route::resource('employees', 'EmployeeController');
