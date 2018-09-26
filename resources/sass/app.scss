@@ -136,3 +136,9 @@ p.subtitle {
         padding: 1.25em 0.5em;
     }
 }
+
+@media screen and (min-width: 1088px) {
+    .navbar-item.has-dropdown {
+        align-items: center;
+    }
+}

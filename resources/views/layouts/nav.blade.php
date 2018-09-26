@@ -11,19 +11,13 @@
       </div>
     </div>
     <div id="navMenu" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" href="admin.html"> Home</a>
-        <a class="navbar-item" href="admin.html"> Orders </a>
-        <a class="navbar-item" href="admin.html"> Payments </a>
-        <a class="navbar-item" href="admin.html"> Exceptions </a>
-      </div>
       <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable">
           Profile
           <div class="navbar-dropdown is-right">
             <a class="navbar-item"> Overview </a>
             <a class="navbar-item"> Elements </a>
-            <a class="navbar-item"> Components </a>
+            <a href="{{ url('/logout') }}" class="navbar-item"> logout </a>
           </div>
         </div>
       </div>
