@@ -62,6 +62,9 @@
               <button class="button is-block is-info is-medium is-fullwidth" type="submit">{{ __('Register') }}</button>
             </form>
           </div>
+          <p class="has-text-grey">
+            <a href="{{ route('login') }}">{{ __('Already registered? Login?') }}</a>
+          </p>
         </div>
       </div>
     </div>

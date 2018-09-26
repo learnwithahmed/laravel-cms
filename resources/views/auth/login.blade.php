@@ -52,7 +52,8 @@
             </form>
           </div>
           <p class="has-text-grey">
-            <a href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
+            <a href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a> |
+            <a href="{{ route('register') }}">{{ __('Register New Account') }}</a>
           </p>
         </div>
       </div>
