@@ -23,12 +23,12 @@
 
 1. `git clone git@github.com:code2gether/laravel-cms.git`
 2. `cd laravel-cms`
-3. update the .env file along with database connection
-   `cp .env.example .env`
+3.  Make a copy of `env` file using `cp .env.example .env` or just create new file and name it `.evn` and paste everything from `.env-example`.
 4. `composer install && composer update`
-5. `php artisan migrate`
+5.  Create a new database with the correct credentials in `.env` file
+6. `php artisan migrate`
 
-#### Run PHP Dev Server
+#### Spin up PHP Dev Server
 
 ```
 php artisan serve
@@ -36,7 +36,7 @@ php artisan serve
 
 #### Run Node Engine
 
-When you change any JS or SCSS code run this command to see changes on time.
+If you change any JS or SCSS code then you need to run this command to see changes on time.
 
 ```
 npm run watch
