@@ -23,10 +23,11 @@
 
 1. `git clone git@github.com:code2gether/laravel-cms.git`
 2. `cd laravel-cms`
-3.  Make a copy of `env` file using `cp .env.example .env` or just create new file and name it `.evn` and paste everything from `.env-example`.
-4. `composer install && composer update`
-5.  Create a new database with the correct credentials in `.env` file
-6. `php artisan migrate`
+3.  Create new `.env` file using `cp .env.example .env` or just create new file and name it `.evn` and paste everything from `.env-example`.
+4.  Run `php artisan key:generate`
+5.  Pull all required packages `composer install && composer update`
+6.  Create a new database with the correct credentials in `.env` file
+7.  Generate DB Tables `php artisan migrate`
 
 #### Spin up PHP Dev Server
 
