@@ -22,4 +22,4 @@ Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::resource('employees', 'EmployeeController');
 
 //Depatrments
-Route::resource('departments','departmentsController');
+Route::resource('departments','DepartmentController');

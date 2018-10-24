@@ -12,6 +12,13 @@
   <ul class="menu-list">
     <li><a>Team Settings</a></li>
     <li>
+      <a>Manage Departments</a>
+      <ul>
+        <li><a href={{ route('departments.index') }} class="{{ Request::is('departments*') ? 'is-active' : '' }}">Departments</a></li>
+        <li><a>Add a Department</a></li>
+      </ul>
+    </li>
+    <li>
       <a>Manage Your Employees</a>
       <ul>
         <li><a>Employees</a></li>

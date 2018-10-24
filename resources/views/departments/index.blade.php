@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="table-container">
-      @include('employees.table')
+      @include('departments.table')
     </div>
 @endsection

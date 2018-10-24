@@ -2,38 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Department;
+use App\Models\Department;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $department = Department::all();
-        return view('department.index')->with('department', $department);
+        $departments = Department::all();
+        return view('departments.index')->with('departments', $departments);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        return view('department.create');
+        return view('departments.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         request()->validate([
@@ -45,39 +32,22 @@ class DepartmentController extends Controller
         Department::create($request->all());
 
 
-        return redirect()->route('department.index')
+        return redirect()->route('departments.index')
             ->with('success','Department created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Department  $department
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Department $department)
     {
-        return view('department.show',compact('department'));
+        return view('departments.show',compact('department'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Department  $department
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Department $department)
     {
-        return view('department.edit',compact('department'));
+        return view('departments.edit',compact('department'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Department  $department
-     * @return \Illuminate\Http\Response
-     */
 
     //update department
     public function update(Request $request, Department $department)
@@ -91,23 +61,18 @@ class DepartmentController extends Controller
         $department->update($request->all());
 
 
-        return redirect()->route('department.index')
+        return redirect()->route('departments.index')
             ->with('success','department updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Department  $department
-     * @return \Illuminate\Http\Response
-     */
+
     // delete department
     public function destroy(Department $department)
     {
         $department->delete();
 
 
-        return redirect()->route('department.index')
+        return redirect()->route('departments.index')
             ->with('success','department deleted successfully');
     }
 }
