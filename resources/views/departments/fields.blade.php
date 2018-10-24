@@ -1,3 +1,5 @@
+<br>
+
 <div class="field">
   <div class="control">
     <input id="name" class="input is-medium{{ $errors->has('name') ? ' is-invalid' : '' }}" type="name" placeholder="Name" name="name"

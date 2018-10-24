@@ -15,7 +15,7 @@
       <a>Manage Departments</a>
       <ul>
         <li><a href={{ route('departments.index') }} class="{{ Request::is('departments*') ? 'is-active' : '' }}">Departments</a></li>
-        <li><a>Add a Department</a></li>
+        <li><a href={{ route('departments.create') }} class="{{ Request::is('Add*') ? 'is-active' : '' }}">Add a Department</a></li>
       </ul>
     </li>
     <li>

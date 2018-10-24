@@ -37,9 +37,11 @@ class DepartmentController extends Controller
     }
 
 
-    public function show(Department $department)
+    public function show($id)
     {
-        return view('departments.show',compact('department'));
+        $department = Department::findOrFail($id);
+        $department->delete();
+        return redirect()->route('departments.index');
     }
 
 
@@ -69,7 +71,7 @@ class DepartmentController extends Controller
     // delete department
     public function destroy(Department $department)
     {
-        $department->delete();
+        $department->id->delete();
 
 
         return redirect()->route('departments.index')

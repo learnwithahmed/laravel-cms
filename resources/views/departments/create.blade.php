@@ -4,6 +4,6 @@
 <form method="POST" action="{{ route('departments.store') }}">
   @csrf
   @include('departments.fields')
-  <button class="button is-block is-info is-medium is-fullwidth">{{ __('Add') }}</button>
+  <button class="button is-block is-info is-medium is-primary">{{ __('Add') }}</button>
 </form>
 @endsection
