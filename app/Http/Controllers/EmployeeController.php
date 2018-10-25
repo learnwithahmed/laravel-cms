@@ -108,5 +108,6 @@ class EmployeeController extends Controller
         $deletedEmployees=Employee::find($id);
         $deletedEmployees->delete();
         return redirect('employees');
+        //bath is not valid 
     }
 }
