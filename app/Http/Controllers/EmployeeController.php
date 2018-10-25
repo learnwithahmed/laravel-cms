@@ -36,7 +36,18 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-       dd($request);
+       $this->validate($request,[
+        'name'=>'Required',
+        'title'=>'Required',
+        'gender'=>'Required',
+        'phone'=>'Required',
+        'email'=>'Required',
+        'city'=>'Required' 
+       ]);
+
+       $employees=$request->all();
+       Employee::create($employees);
+       return redirect('employees');
     }
 
     /**
@@ -56,9 +67,11 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employee $employee)
+    public function edit($id)
     {
-        //
+        $employee=Employee::find($id);
+      
+        return view('employees.edit',compact('employee'));
     }
 
     /**
@@ -68,9 +81,20 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name'=>'Required',
+            'title'=>'Required',
+            'gender'=>'Required',
+            'phone'=>'Required',
+            'email'=>'Required',
+            'city'=>'Required' 
+           ]);
+           $employees=Employee::find($id);
+           $UpdateEmployees=$request->all();
+          $employees->update($UpdateEmployees);
+           return redirect('employees'); 
     }
 
     /**
@@ -79,8 +103,10 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employee)
+    public function destroy($id)
     {
-        //
+        $deletedEmployees=Employee::find($id);
+        $deletedEmployees->delete();
+        return redirect('employees');
     }
 }
