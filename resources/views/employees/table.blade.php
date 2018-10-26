@@ -22,7 +22,7 @@
         <td>{!! $employee->dob !!}</td>
         <td>{!! $employee->email !!}</td>
         <td>{!! $employee->phone !!}</td>
-        <td>{!! $employee->hire_date !!}</td>
+        <td>{!! $employee->city!!}</td>
         <td>
           <a href="{!! route('employees.edit', [$employee->id]) !!}">
             <span class="icon is-small">

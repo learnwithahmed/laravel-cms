@@ -41,9 +41,10 @@ class EmployeeController extends Controller
         'title'=>'Required',
         'gender'=>'Required',
         'phone'=>'Required',
-        'email'=>'Required',
+        'email'  =>'Required',
         'city'=>'Required' 
        ]);
+       
 
        $employees=$request->all();
        Employee::create($employees);
