@@ -34,17 +34,17 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEmployee $request)
     {
-       $this->validate($request,[
+      /* $this->validate($request,[
         'name'=>'Required',
         'title'=>'Required',
         'gender'=>'Required',
         'phone'=>'Required',
         'email'  =>'Required',
         'city'=>'Required' 
-       ]);
-       
+       ]);*/
+       $validated = $request->validated();
 
        $employees=$request->all();
        Employee::create($employees);
