@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Requests;
-
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreEmployee extends FormRequest
@@ -13,7 +12,7 @@ class StoreEmployee extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -29,7 +28,7 @@ class StoreEmployee extends FormRequest
             'gender'=>'required',
             'phone'=>'required',
             'email'  =>'required',
-            'city'=>'required' 
+            'city'=>'required'
             //
         ];
     }

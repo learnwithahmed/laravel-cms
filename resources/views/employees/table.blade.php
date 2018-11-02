@@ -29,11 +29,15 @@
               <i class="fa fa-edit"></i>
             </span>
           </a>
-          <a href="{!! route('employees.destroy', [$employee->id]) !!}">
-            <span class="icon is-small">
-              <i class="fa fa-trash-alt"></i>
-            </span>
-          </a>
+        </td>
+
+
+        <td >
+                {!! Form::open(['route'=>['employees.destroy',$employee->id],'method'=>'DELETE']) !!}
+
+                {!! Form::submit('Delete', ['class'=>'btn btn-danger btn-block']) !!}
+
+                {!! Form::close() !!}
         </td>
       </tr>
     @endforeach

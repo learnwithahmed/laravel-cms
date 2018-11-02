@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Employee;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreEmployee;
+//use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
@@ -14,7 +14,9 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::all();
+
+       // $employees = Employee::all();
+        $employees = Employee:: orderBy('name','asc')->get();
         return view('employees.index')->with('employees', $employees);
     }
 
@@ -36,7 +38,7 @@ class EmployeeController extends Controller
      */
     public function store(StoreEmployee $request)
     {
-     
+
        $validated = $request->validated();
 
        $employees=$request->all();
@@ -64,7 +66,7 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $employee=Employee::find($id);
-      
+
         return view('employees.edit',compact('employee'));
     }
 
@@ -75,20 +77,14 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreEmployee $request, $id)
     {
-        $this->validate($request,[
-            'name'=>'Required',
-            'title'=>'Required',
-            'gender'=>'Required',
-            'phone'=>'Required',
-            'email'=>'Required',
-            'city'=>'Required' 
-           ]);
+           $validated = $request->validated();
+
            $employees=Employee::find($id);
            $UpdateEmployees=$request->all();
-          $employees->update($UpdateEmployees);
-           return redirect('employees'); 
+            $employees->update($UpdateEmployees);
+           return redirect('employees');
     }
 
     /**
@@ -102,6 +98,6 @@ class EmployeeController extends Controller
         $deletedEmployees=Employee::find($id);
         $deletedEmployees->delete();
         return redirect('employees');
-        //bath is not valid 
+        //bath is not valid
     }
 }
