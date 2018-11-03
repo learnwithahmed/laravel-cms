@@ -15,7 +15,7 @@
       <a>Manage Your Employees</a>
       <ul>
         <li><a>Employees</a></li>
-        <li><a>Add a employee</a></li>
+        <li><a <a href={{ route('employees.create') }}>Add a employee</a></li>
       </ul>
     </li>
     <li><a>Invitations</a></li>
