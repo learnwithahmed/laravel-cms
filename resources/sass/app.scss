@@ -1,144 +1,167 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Bulma
-@import "./node_modules/bulma/bulma.sass";
+@import './node_modules/bulma/bulma.sass';
 
 html,
 body {
-    font-family: "Open Sans", serif;
-    font-size: 16px;
-    line-height: 1.5;
-    height: 100%;
-    background: #ecf0f3;
+	height: 100%;
+	background: #ecf0f3;
+	font-family: 'Open Sans', serif;
+	font-size: 16px;
+	line-height: 1.5;
 }
+
 nav.navbar {
-    border-top: 4px solid #276cda;
-    margin-bottom: 1rem;
+	margin-bottom: 1rem;
+	border-top: 4px solid #276cda;
 }
+
 .navbar-item {
-    &.brand-text {
-        font-weight: 300;
-    }
+	&.brand-text {
+		font-weight: 300;
+	}
 }
+
 .navbar-item,
 .navbar-link {
-    font-size: 14px;
-    font-weight: 700;
+	font-size: 14px;
+	font-weight: 700;
 }
+
 .columns {
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 }
+
 .menu-label {
-    color: #8f99a3;
-    letter-spacing: 1.3;
-    font-weight: 700;
+	color: #8f99a3;
+	font-weight: 700;
+	letter-spacing: 1.3;
 }
+
 .menu-list a {
-    color: #0f1d38;
-    font-size: 14px;
-    font-weight: 700;
-    &:hover {
-        background-color: transparent;
-        color: #276cda;
-    }
-    &.is-active {
-        background-color: transparent;
-        color: #276cda;
-        font-weight: 700;
-    }
+	color: #0f1d38;
+	font-size: 14px;
+	font-weight: 700;
+
+	&:hover {
+		background-color: transparent;
+		color: #276cda;
+	}
+
+	&.is-active {
+		background-color: transparent;
+		color: #276cda;
+		font-weight: 700;
+	}
 }
+
 .card {
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
-    margin-bottom: 2rem;
+	margin-bottom: 2rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
 }
+
 .card-header-title {
-    color: #8f99a3;
-    font-weight: 400;
+	color: #8f99a3;
+	font-weight: 400;
 }
+
 .info-tiles {
-    margin: 1rem 0;
+	margin: 1rem 0;
 }
+
 .info-tiles .subtitle {
-    font-weight: 300;
-    color: #8f99a3;
+	color: #8f99a3;
+	font-weight: 300;
 }
+
 .hero.welcome {
-    & .title,
-    & .subtitle {
-        color: hsl(192, 17%, 99%);
-    }
-    &.is-info {
-        background: #36d1dc;
-        background: -webkit-linear-gradient(to right, #5b86e5, #36d1dc);
-        background: linear-gradient(to right, #5b86e5, #36d1dc);
-    }
+	& .title,
+	& .subtitle {
+		color: hsl(192, 17%, 99%);
+	}
+
+	&.is-info {
+		background: #36d1dc;
+		background: -webkit-linear-gradient(to right, #5b86e5, #36d1dc);
+		background: linear-gradient(to right, #5b86e5, #36d1dc);
+	}
 }
 
 .card .content {
-    font-size: 14px;
+	font-size: 14px;
 }
+
 .card-footer-item {
-    font-size: 14px;
-    font-weight: 700;
-    color: #8f99a3;
+	color: #8f99a3;
+	font-size: 14px;
+	font-weight: 700;
 }
 
 .card-table .table {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
+
 .events-card .card-table {
-    max-height: 250px;
-    overflow-y: scroll;
+	max-height: 250px;
+	overflow-y: scroll;
 }
 
 // Login
 .hero.is-success {
-    background: #f2f6fa;
+	background: #f2f6fa;
 }
+
 .hero .nav,
 .hero.is-success .nav {
-    -webkit-box-shadow: none;
-    box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
+
 .box {
-    margin-top: 5rem;
+	margin-top: 5rem;
 }
+
 .avatar {
-    margin-top: -70px;
-    padding-bottom: 20px;
+	margin-top: -70px;
+	padding-bottom: 20px;
 }
+
 .avatar img {
-    padding: 5px;
-    background: #fff;
-    border-radius: 50%;
-    -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1),
-        0 0 0 1px rgba(10, 10, 10, 0.1);
-    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+	padding: 5px;
+	border-radius: 50%;
+	background: #fff;
+	-webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+	box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
 }
+
 input {
-    font-weight: 300;
+	font-weight: 300;
 }
+
 p {
-    font-weight: 700;
+	font-weight: 700;
 }
+
 p.subtitle {
-    padding-top: 1rem;
+	padding-top: 1rem;
 }
 
 .table-container {
-    overflow: visible;
+	overflow: visible;
 }
+
 .table.is-narrow {
-    & td,
-    & th {
-        padding: 1.25em 0.5em;
-    }
+	& td,
+	& th {
+		padding: 1.25em 0.5em;
+	}
 }
 
 @media screen and (min-width: 1088px) {
-    .navbar-item.has-dropdown {
-        align-items: center;
-    }
+	.navbar-item.has-dropdown {
+		align-items: center;
+	}
 }
