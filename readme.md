@@ -1,6 +1,7 @@
 # Laravel CMS
 
 -   [System Requirements](#system-requirements)
+-   [Editor Requirements](#editor-requirements)
 -   [Installation](#installation)
 
 ## System Requirements
@@ -19,15 +20,30 @@
     -   Ctype PHP Extension
     -   JSON PHP Extension
 
+## Editor Requirements
+
+Install the follwoing extentions for your editor
+
+-   [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+-   [StyleLint](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint)
+
 ### Installation
 
 1. `git clone git@github.com:code2gether/laravel-cms.git`
 2. `cd laravel-cms`
-3.  Create new `.env` file using `cp .env.example .env` or just create new file and name it `.evn` and paste everything from `.env-example`.
-4.  Run `php artisan key:generate`
-5.  Pull all required packages `composer install && composer update`
-6.  Create a new database with the correct credentials in `.env` file
-7.  Generate DB Tables `php artisan migrate`
+3. Pull all composer packages `composer install && composer update` , and node modules `npm install`
+4. Make a new `.env` file by running this command in your terminal `cp .env.example .env`
+5. Run `php artisan key:generate`
+6. Create a new database using (Sequel Pro, Navicat, phpMyAdmin, ...etc) with the correct credentials you specify in your `.env` file
+
+```
+DB_PORT     = 3306
+DB_DATABASE = YOUR_DATABASE_NAME
+DB_USERNAME = DATABASE_USER_NAME_OR_ROOT
+DB_PASSWORD = DATABASE_PASSWORD_OR_EMPTY
+```
+
+7. Generate DB Tables `php artisan migrate`
 
 #### Spin up PHP Dev Server
 
@@ -35,7 +51,7 @@
 php artisan serve
 ```
 
-#### Run Node Engine
+#### Watch Live Changes
 
 If you change any JS or SCSS code then you need to run this command to see changes on time.
 
