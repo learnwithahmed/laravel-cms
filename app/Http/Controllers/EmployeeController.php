@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Employee;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreEmployee;
+//use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
@@ -14,7 +14,9 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::all();
+
+       // $employees = Employee::all();
+        $employees = Employee:: orderBy('name','asc')->get();
         return view('employees.index')->with('employees', $employees);
     }
 
@@ -34,9 +36,14 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEmployee $request)
     {
-       dd($request);
+
+       $validated = $request->validated();
+
+       $employees=$request->all();
+       Employee::create($employees);
+       return redirect('employees');
     }
 
     /**
@@ -56,9 +63,11 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employee $employee)
+    public function edit($id)
     {
-        //
+        $employee=Employee::find($id);
+
+        return view('employees.edit',compact('employee'));
     }
 
     /**
@@ -68,9 +77,14 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employee $employee)
+    public function update(StoreEmployee $request, $id)
     {
-        //
+           $validated = $request->validated();
+
+           $employees=Employee::find($id);
+           $UpdateEmployees=$request->all();
+            $employees->update($UpdateEmployees);
+           return redirect('employees');
     }
 
     /**
@@ -79,8 +93,11 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employee)
+    public function destroy($id)
     {
-        //
+        $deletedEmployees=Employee::find($id);
+        $deletedEmployees->delete();
+        return redirect('employees');
+        //bath is not valid
     }
 }
