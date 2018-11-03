@@ -23,21 +23,27 @@
         <td>{!! $employee->email !!}</td>
         <td>{!! $employee->phone !!}</td>
         <td>{!! $employee->city!!}</td>
-        <td>
+		<td>
+          <a href="{!! route('employees.show', [$employee->id]) !!}">
+            <span class="icon is-small">
+              <i class="fa fa-eye"></i>
+            </span>
+          </a>
+
           <a href="{!! route('employees.edit', [$employee->id]) !!}">
             <span class="icon is-small">
               <i class="fa fa-edit"></i>
             </span>
           </a>
-        </td>
-
-
-        <td >
-                {!! Form::open(['route'=>['employees.destroy',$employee->id],'method'=>'DELETE']) !!}
-
-                {!! Form::submit('Delete', ['class'=>'btn btn-danger btn-block']) !!}
-
-                {!! Form::close() !!}
+			<form action="{!! route('employees.destroy', [$employee->id]) !!}" method="POST">
+				@csrf
+				{{method_field('DELETE')}}
+				<button>
+					<span class="icon is-small">
+						<i class="fa fa-trash"></i>
+					</span>
+				</button>
+			</form>
         </td>
       </tr>
     @endforeach
