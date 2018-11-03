@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Http\Requests\StoreEmployee;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
@@ -16,7 +16,7 @@ class EmployeeController extends Controller
     {
 
        // $employees = Employee::all();
-        $employees = Employee:: orderBy('name','asc')->get();
+        $employees = Employee::orderBy('name','asc')->get();
         return view('employees.index')->with('employees', $employees);
     }
 
@@ -95,9 +95,9 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        $deletedEmployees=Employee::find($id);
-        $deletedEmployees->delete();
-        return redirect('employees');
-        //bath is not valid
+		$employee = Employee::findOrFail($id);
+		$employee->delete();
+
+		return redirect('employees');
     }
 }
