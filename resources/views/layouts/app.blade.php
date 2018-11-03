@@ -10,7 +10,7 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-  
+
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet"> @yield('css')
   <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
@@ -28,7 +28,7 @@
         @include('layouts.sidebar')
       </div>
       <div class="column is-9">
-        @include('layouts.banner') 
+        @include('layouts.banner')
         <!-- content -->
         @yield('content')
       </div>
