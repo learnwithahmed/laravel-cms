@@ -23,13 +23,12 @@ class StoreEmployee extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required',
-            'title'=>'required',
-            'gender'=>'required',
-            'phone'=>'required',
-            'email'  =>'required',
-            'city'=>'required'
-            //
+            'name'   => 'required',
+            'title'  => 'required',
+            'gender' => 'required',
+            'phone'  => 'required',
+            'email'  => 'required|unique:employees',
+            'city'   => 'required'
         ];
     }
 }
