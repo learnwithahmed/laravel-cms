@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Department;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreDepartment;
 
 class DepartmentController extends Controller
 {
@@ -21,19 +22,12 @@ class DepartmentController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StoreDepartment $request)
     {
-        request()->validate([
-            'name' => 'required',
-            'detail' => 'required',
-        ]);
-
-
-        Department::create($request->all());
-
-
-        return redirect()->route('departments.index')
-            ->with('success','Department created successfully.');
+        $request->validated();
+       Department::create($request->all());
+         return back()->with
+            ('success','Department created successfully.');
     }
 
 
@@ -52,17 +46,10 @@ class DepartmentController extends Controller
 
 
     //update department
-    public function update(Request $request, Department $department)
+    public function update(StoreDepartment $request, Department $department)
     {
-        request()->validate([
-            'name' => 'required',
-            'detail' => 'required',
-        ]);
-
-
+       $request->validated();
         $department->update($request->all());
-
-
         return redirect()->route('departments.index')
             ->with('success','department updated successfully');
     }
@@ -71,7 +58,7 @@ class DepartmentController extends Controller
     // delete department
     public function destroy(Department $department)
     {
-        $department->id->delete();
+        $department->delete();
 
 
         return redirect()->route('departments.index')
