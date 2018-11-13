@@ -15,7 +15,18 @@ class EmployeeController extends Controller
 	public function index()
 	{
 		// $employees = Employee::all();
-		$employees = Employee::orderBy('name', 'asc')->get();
+		if (request()->has('gender')) {
+			$employees = Employee::where('gender', request('gender'))
+				->orderBy('name', 'asc')
+				->get();
+		} elseif (request()->has('descent')) {
+			$employees = Employee::orderBy('name', 'desc')->get();
+		} elseif (request()->has('ascent')) {
+			$employees = Employee::orderBy('name', 'asc')->get();
+		} else {
+			$employees = Employee::get();
+		}
+
 		return view('employees.index')->with('employees', $employees);
 	}
 
