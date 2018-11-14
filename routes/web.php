@@ -20,3 +20,6 @@ Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 //Emplyees
 Route::resource('employees', 'EmployeeController');
+
+//Depatrments
+Route::resource('departments','DepartmentController');

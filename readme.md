@@ -23,10 +23,17 @@
 
 1. `git clone git@github.com:code2gether/laravel-cms.git`
 2. `cd laravel-cms`
-3.  Create new `.env` file using `cp .env.example .env` or just create new file and name it `.evn` and paste everything from `.env-example`.
+3.  Pull all required packages `composer install && composer update`
 4.  Run `php artisan key:generate`
-5.  Pull all required packages `composer install && composer update`
-6.  Create a new database with the correct credentials in `.env` file
+5.  Rename`.env-example` file  to `.evn`. 
+6.  Create a new database in your Local phpMyAdmin with the correct credentials in `.env` file.
+    ```DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=your-database-name
+     DB_USERNAME=your database user name or root
+     DB_PASSWORD=""
+     ```
 7.  Generate DB Tables `php artisan migrate`
 
 #### Spin up PHP Dev Server
