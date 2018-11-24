@@ -7,97 +7,96 @@ use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function index()
+	{
+		// $employees = Employee::all();
+		$employees = Employee::orderBy('name', 'asc')->get();
+		return view('employees.index')->with('employees', $employees);
+	}
 
-       // $employees = Employee::all();
-        $employees = Employee::orderBy('name','asc')->get();
-        return view('employees.index')->with('employees', $employees);
-    }
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function create()
+	{
+		return view('employees.create');
+	}
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('employees.create');
-    }
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function store(StoreEmployee $request)
+	{
+		$validated = $request->validated();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreEmployee $request)
-    {
+		$employees = $request->all();
+		Employee::create($employees);
+		return redirect('employees');
+	}
 
-       $validated = $request->validated();
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  \App\Models\Employee  $employee
+	 * @return \Illuminate\Http\Response
+	 */
+	public function show($id)
+	{
+		$employee = Employee::find($id);
+		return view('employees.show', compact('employee'));
+	}
 
-       $employees=$request->all();
-       Employee::create($employees);
-       return redirect('employees');
-    }
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  \App\Models\Employee  $employee
+	 * @return \Illuminate\Http\Response
+	 */
+	public function edit($id)
+	{
+		$employee = Employee::find($id);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Employee  $employee
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Employee $employee)
-    {
-        //
-    }
+		return view('employees.edit', compact('employee'));
+	}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Employee  $employee
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $employee=Employee::find($id);
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  \App\Models\Employee  $employee
+	 * @return \Illuminate\Http\Response
+	 */
+	public function update(StoreEmployee $request, $id)
+	{
+		$validated = $request->validated();
 
-        return view('employees.edit',compact('employee'));
-    }
+		$employees = Employee::find($id);
+		$UpdateEmployees = $request->all();
+		$employees->update($UpdateEmployees);
+		return redirect('employees');
+	}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Employee  $employee
-     * @return \Illuminate\Http\Response
-     */
-    public function update(StoreEmployee $request, $id)
-    {
-           $validated = $request->validated();
-
-           $employees=Employee::find($id);
-           $UpdateEmployees=$request->all();
-            $employees->update($UpdateEmployees);
-           return redirect('employees');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Employee  $employee
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  \App\Models\Employee  $employee
+	 * @return \Illuminate\Http\Response
+	 */
+	public function destroy($id)
+	{
 		$employee = Employee::findOrFail($id);
 		$employee->delete();
 
 		return redirect('employees');
-    }
+	}
 }
